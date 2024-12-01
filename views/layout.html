@@ -52,7 +52,7 @@ function onClickEditBtn(route) {
     <link rel="shortcut icon" href="/skins/liberty/static/img/favicon.ico">
     <div class="nav-wrapper">
         <nav class="navbar navbar-dark">
-            <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text') }}</a>
+            <a class="navbar-brand" href="/">{{ config.getString('skin.liberty.navbar_logo_text') || '뉴시드위키' }}</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/RecentChanges"><span class="fa fa-refresh"></span><span class="hide-title">최근 변경</span></a>
@@ -78,7 +78,7 @@ function onClickEditBtn(route) {
                         <a href="/RandomPage" class="dropdown-item">RandomPage</a>
                         <a href="/Upload" class="dropdown-item">파일 올리기</a>
                         <a href="/License" class="dropdown-item">라이선스</a>
-                        {% if perms.has('grant','login_history','aclgroup','ipacl','suspend_account') %}
+                        {% if perms.has('grant','login_history','aclgroup') %}
                             <div class="dropdown-divider"></div>
                         {% endif %}
                         {% if perms.has('ipacl') %}
@@ -187,7 +187,7 @@ function onClickEditBtn(route) {
         </div>
         <div class="container-fluid liberty-content">
             {% if config.getString('wiki.sitenotice', null) %}
-            <div id="site-notice" class="notification">
+            <div id="alert alert-info" class="notification">
                 <span class="label label-danger">{{ config.getString('wiki.sitenotice', null)|safe }}</span>
             </div>
             {% endif %}
@@ -362,7 +362,7 @@ function onClickEditBtn(route) {
                 </ul>
                 <ul class="footer-icons">
                     <li class="footer-poweredbyico">
-                        <a href="//github.com/navyCarpet/imitated-skin-liberty">Liberty</a> | <a href="//github.com/gdl-blue/imitated-seed-2/">imitated seed</a>
+                        <a href="//github.com/theseeduse/newseed-skin-liberty">Liberty</a> | <a href="//github.com/theseeduse/New-seed/">new seed</a>
                     </li>
                 </ul>
             </div>
