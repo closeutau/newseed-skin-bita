@@ -1,3 +1,4 @@
+<!-- TODO: 다크모드 호환 -->
 <style>
 body {
     --liberty-brand-color: {{ config.getString('skin.liberty.brand_color_1') || '#4188f1' }};
@@ -80,12 +81,6 @@ function onClickEditBtn(route) {
                         <a href="/License" class="dropdown-item">라이선스</a>
                         {% if perms.has('grant','login_history','aclgroup') %}
                             <div class="dropdown-divider"></div>
-                        {% endif %}
-                        {% if perms.has('ipacl') %}
-                            <a href="/admin/ipacl" class="dropdown-item">IPACL</a>
-                        {% endif %}
-                        {% if perms.has('suspend_account') %}
-                            <a href="/admin/suspend_account" class="dropdown-item">계정 차단</a>
                         {% endif %}
                         {% if perms.has('grant') %}
                             <a href="/admin/grant" class="dropdown-item">권한</a>
@@ -188,7 +183,7 @@ function onClickEditBtn(route) {
         <div class="container-fluid liberty-content">
             {% if config.getString('wiki.sitenotice', null) %}
             <div id="alert alert-info" class="notification">
-                <span class="label label-danger">{{ config.getString('wiki.sitenotice', null)|safe }}</span>
+                <span class="alert alert-info">{{ config.getString('wiki.sitenotice', null)|safe }}</span>
             </div>
             {% endif %}
             <div class="liberty-content-header">
@@ -362,7 +357,7 @@ function onClickEditBtn(route) {
                 </ul>
                 <ul class="footer-icons">
                     <li class="footer-poweredbyico">
-                        <a href="//github.com/theseeduse/newseed-skin-liberty">Liberty</a> | <a href="//github.com/theseeduse/New-seed/">new seed</a>
+                        <a href="//github.com/closeutau/imitated-seed-4">Liberty</a> | <a href="//github.com/closeutau/imitated-seed-4/">new seed</a>
                     </li>
                 </ul>
             </div>
